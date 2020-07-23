@@ -1,7 +1,7 @@
-const path = require('path')
-const webpack = require('webpack')
-const HtmlWebPackPlugin = require("html-webpack-plugin")
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     entry: './src/client/index.js',
@@ -23,13 +23,16 @@ module.exports = {
             filename: "./index.html",
         }),
         new CleanWebpackPlugin({
-            // Simulate the removal of files
-            dry: true,
-            // Write Logs to Console
-            verbose: true,
-            // Automatically remove all unused webpack assets on rebuild
+            // по  умолчанию: false
+            dry: true,  // Имитация удаления файлов
+            // всегда включено, когда значение dry равно true
+            verbose: true, // Запись логов в консоль
+            // Автоматически удаляем все неиспользуемые ресурсы
+            // webpack при перестройке
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
         })
     ]
-}
+};
+
+
